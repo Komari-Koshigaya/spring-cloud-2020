@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>per.niejun.cloud</groupId>
-    <artifactId>coud2020</artifactId>
+    <artifactId>cloud2020</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -17,17 +17,18 @@
     <!--统一管理jar包版本-->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>12</maven.compiler.source>
-        <maven.compiler.target>12</maven.compiler.target>
+        <!--   指定jdk版本为1.8     -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <junit.version>4.12</junit.version>
-        <lombok.version>1.18.10</lombok.version>
         <log4j.version>1.2.17</log4j.version>
+        <lombok.version>1.18.10</lombok.version>
+        <!-- mysql5.6对应的版本 -->
         <mysql.version>5.1.47</mysql.version>
         <druid.version>1.1.16</druid.version>
         <mybatis.spring.boot.version>2.1.1</mybatis.spring.boot.version>
     </properties>
 
-    <!--子模块继承之后，提供作用：锁定版本+子module不用谢groupId和version-->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -94,4 +95,17 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <addResources>true</addResources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

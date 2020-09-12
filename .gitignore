@@ -24,7 +24,9 @@ hs_err_pid*
 
 
 #idea
+out
 target
 test
 *.iml
 .idea
+note
