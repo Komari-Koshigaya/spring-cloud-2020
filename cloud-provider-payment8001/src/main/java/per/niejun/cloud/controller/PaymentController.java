@@ -28,7 +28,7 @@ public class PaymentController {
         log.debug("插入结果: " + result);
 
         if (result > 0) {
-            return new CommonResult(200, "插入数据库成功", result);
+            return new CommonResult(200, "插入数据库成功，(#`O′)", result);
         } else {
             return new CommonResult(444, "插入失败", null);
         }
@@ -37,10 +37,10 @@ public class PaymentController {
     @GetMapping(value = "/payment/get/{id}")
     public CommonResult getPaymentById(@PathVariable("id") Long id) {
         Payment payment = paymentService.getPaymentById(id);
-        log.info("查询结果: " + payment);
+        log.debug("查询结果: " + payment);
 
         if (payment != null) {
-            return new CommonResult(200, "查询成功", payment);
+            return new CommonResult(200, "查询成功，(*^_^*)", payment);
         } else {
             return new CommonResult(444, "没有结果，查询id：" + id, null);
         }
