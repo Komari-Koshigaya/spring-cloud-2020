@@ -38,3 +38,4 @@ spring cloud 中肯定需要 启动多个服务实例，
 ![img](assets/3fd58139ae6a235cbcf14e923892fd9c7d0.jpg)
 
 每选择启动一个 之前，可以修改 application.yml 这样启动的服务效果就可以不一样的。
+
