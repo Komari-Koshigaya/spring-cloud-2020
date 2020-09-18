@@ -1,0 +1,21 @@
+#下载consul压缩包后解压得到 consul.exe
+# 在同目录下打开命令行输入 consul agent -dev
+# 即可在 http://localhost:8500 看到注册的服务信息
+###consul服务端口号
+server:
+  port: 8006
+
+spring:
+  application:
+    name: consul-provider-payment
+  #consul注册中心地址
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        #hostname: 127.0.0.1
+        service-name: ${spring.application.name}
+
+
+
