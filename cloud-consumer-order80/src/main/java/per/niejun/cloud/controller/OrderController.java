@@ -17,7 +17,9 @@ import javax.annotation.Resource;
 @RestController
 @Slf4j
 public class OrderController {
-    public static final String PRYMENT_URL = "http://localhost:8001";
+//    public static final String PRYMENT_URL = "http://localhost:8001";
+    //服务提供者使用了集群 将其改成服务名 来实现访问集群
+    public static final String PRYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
 
     @Resource
     private RestTemplate restTemplate;
