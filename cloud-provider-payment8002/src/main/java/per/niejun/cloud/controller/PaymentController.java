@@ -46,4 +46,12 @@ public class PaymentController {
             return new CommonResult(444, "没有结果，查询id：" + id, null);
         }
     }
+
+    /**
+     *     打印支付微服务的端口号 来 测试手写的轮询算法
+     */
+    @GetMapping(value = "/payment/lb")
+    public String getPaymentLB() {
+        return serverPort;
+    }
 }
