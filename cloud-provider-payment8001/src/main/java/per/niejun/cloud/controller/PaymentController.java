@@ -8,6 +8,7 @@ import per.niejun.cloud.entities.Payment;
 import per.niejun.cloud.service.PaymentService;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author NieJun
@@ -52,6 +53,20 @@ public class PaymentController {
      */
     @GetMapping(value = "/payment/lb")
     public String getPaymentLB() {
+        return serverPort;
+    }
+
+    /**
+     * 测试openfeign的超时控制
+     * @return
+     */
+    @GetMapping(value = "/payment/feign/timeout")
+    public String paymentFeignTimeout(){
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return serverPort;
     }
 }

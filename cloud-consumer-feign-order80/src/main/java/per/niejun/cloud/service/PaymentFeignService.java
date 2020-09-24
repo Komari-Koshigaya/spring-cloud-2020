@@ -16,4 +16,11 @@ import per.niejun.cloud.entities.Payment;
 public interface PaymentFeignService {
     @GetMapping(value = "/payment/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id);
+
+    /**
+     * 测试openfeign的超时控制
+     * @return
+     */
+    @GetMapping(value = "/payment/feign/timeout")
+    public String paymentFeignTimeout();
 }
