@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @date 2020年9月27日 10点33分
  */
 @Component
-@FeignClient(value = "CLOUD-PROVIDER-HYSTRIX-PAYMENT")
+@FeignClient(value = "CLOUD-PROVIDER-HYSTRIX-PAYMENT" ,fallback = PaymentFallbackServiceImpl.class)
 public interface PaymentHystrixService {
     /**
      * 使用 OpenFeign 向服务提供者 发送http请求
