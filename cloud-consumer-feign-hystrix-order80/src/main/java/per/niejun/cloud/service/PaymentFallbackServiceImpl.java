@@ -4,7 +4,8 @@ import org.springframework.stereotype.Component;
 
 /**
  * @Author NieJun
- * @Description TODO
+ * @Description 使用PaymentFallbackServiceImpl实现PaymentHystrixService，
+ * 在实现类里写fallback，将fallback与controller层的业务逻辑分离
  * @Date 2020/9/28 20:39
  **/
 @Component

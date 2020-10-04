@@ -24,22 +24,34 @@ public class PaymentController {
     private String serverPort;
 
     @GetMapping("/payment/hystrix/ok/{id}")
-    public String paymentInfoOK(@PathVariable("id") Integer id){
+    public String paymentInfoOK(@PathVariable("id") Integer id) {
         String result = paymentService.paymentInfoOk(id);
-        log.info("*****result: "+result);
+        log.info("*****result: " + result);
         return result;
     }
 
     /**
      * 使用超时 模拟复杂的业务 测试 hystrix 的服务熔断
+     *
      * @param id
      * @return
      */
     @GetMapping("/payment/hystrix/timeout/{id}")
-    public String paymentInfoTimeOut(@PathVariable("id") Integer id)
-    {
+    public String paymentInfoTimeOut(@PathVariable("id") Integer id) {
         String result = paymentService.paymentInfoTimeOut(id);
-        log.info("*****result: "+result);
+        log.info("*****result: " + result);
+        return result;
+    }
+
+    /**
+     * ===========>服务熔断
+     * @param id
+     * @return
+     */
+    @GetMapping("/payment/circuit/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
+        String result = paymentService.paymentCircuitBreaker(id);
+        log.info("****result: " + result);
         return result;
     }
 }
