@@ -4,6 +4,13 @@ server:
 spring:
   application:
     name: cloud-order-service
+  # ====> 配置微服务调用追踪 配置开始
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1
+  # ====> 配置微服务调用追踪 配置结束
 
 eureka:
   client:

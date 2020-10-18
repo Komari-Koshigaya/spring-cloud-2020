@@ -49,7 +49,7 @@ public class PaymentController {
     }
 
     /**
-     *     打印支付微服务的端口号 来 测试手写的轮询算法
+     * 打印支付微服务的端口号 来 测试手写的轮询算法
      */
     @GetMapping(value = "/payment/lb")
     public String getPaymentLB() {
@@ -58,15 +58,26 @@ public class PaymentController {
 
     /**
      * 测试openfeign的超时控制
+     *
      * @return
      */
     @GetMapping(value = "/payment/feign/timeout")
-    public String paymentFeignTimeout(){
+    public String paymentFeignTimeout() {
         try {
             TimeUnit.SECONDS.sleep(3);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return serverPort;
+    }
+
+    /**
+     * ====================> zipkin+sleuth
+     * 测试 使用zipkin 进行微服务调用链路追踪
+     * @return String
+     */
+    @GetMapping("/payment/zipkin")
+    public String paymentZipkin() {
+        return "hi ,i'am paymentzipkin server fall back，welcome to delaiwen，O(∩_∩)O哈哈~";
     }
 }
